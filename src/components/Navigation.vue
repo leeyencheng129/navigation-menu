@@ -2,20 +2,19 @@
   <header :class="{'scrolled-nav':scrolledNav}">
     <nav>
       <div class="branding">
-        <img src="@/assets/logo.png" alt="">
+         <router-link :to="{name:'Home'}"><img src="@/assets/logo.svg" alt=""></router-link>
+       
       </div>
       <ul v-show="!mobile" class="navigation">
         <li>
-          <router-link class="link" :to="{name:'Home'}">Home</router-link>
+          <router-link class="link" :to="{name:'Brand'}">品牌介紹</router-link>
         </li>
         <li>
-          <router-link class="link" :to="{name:'About'}">About</router-link>
+          <router-link class="link" :to="{name:'About'}">關於護膚</router-link>
         </li>
+      
         <li>
-          <router-link class="link" :to="{name:''}">Portfolio</router-link>
-        </li>
-        <li>
-          <router-link class="link" :to="{name:''}">Contact</router-link>
+          <router-link class="link" :to="{name:'Contact'}">聯絡我們</router-link>
         </li>
       </ul>
       <div class="icon">
@@ -24,16 +23,14 @@
       <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
           <li>
-            <router-link class="link" :to="{name:'Home'}">Home</router-link>
+            <router-link class="link" :to="{name:'Home'}">品牌介紹</router-link>
           </li>
           <li>
-            <router-link class="link" :to="{name:''}">About</router-link>
+            <router-link class="link" :to="{name:'About'}">關於護膚</router-link>
           </li>
+      
           <li>
-            <router-link class="link" :to="{name:''}">Portfolio</router-link>
-          </li>
-          <li>
-            <router-link class="link" :to="{name:''}">Contact</router-link>
+            <router-link class="link" :to="{name:'Contact'}">聯絡我們</router-link>
           </li>
         </ul>
       </transition>
@@ -90,12 +87,13 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-color: rgba(85, 85, 85, 0.507);
+  background-color: #fff;
   z-index: 99;
   width: 100%;
   position: fixed;
   transition: 0.5s ease all;
-  color: #fff;
+  color: #333;
+  border-bottom: 1px solid #e43f94;
   nav {
   position: relative;
   display: flex;
@@ -111,7 +109,7 @@ header {
   ul,
   .link {
     font-weight: 500;
-    color: #fff;
+    color: #333;
     list-style: none;
     text-decoration: none;
   }
@@ -119,17 +117,18 @@ header {
     text-transform: uppercase;
     padding: 16px;
     margin-left: 16px;
+
   }
 
   .link {
-    font-size: 14px;
+    font-size: 18px;
     transition: 0.5s ease all;
     padding-bottom: 4px;
     border-bottom: 1px solid transparent;
 
     &:hover {
-      color: aquamarine;
-      border-color: aqua;
+      color:#333;
+      border-color: #e43f94;
     }
   }
 
@@ -138,8 +137,11 @@ header {
     align-items: center;
 
     img {
-      width: 50px;
+      width: 140px;
       transition: 0.5s ease all;
+      @media (max-width:600px){
+         width: 80px;
+      }
     }
   }
   .navigation {
@@ -177,7 +179,7 @@ header {
     background: #fff;
     top: 0;
     left: 0;
-
+    box-shadow: 0 0 20px 0 #ddd;
     li {
       margin-left: 0;
       .link {
@@ -199,15 +201,18 @@ header {
 }
 
 .scrolled-nav{
-  background: #000;
+  background: rgba(255, 255, 255, 0.86);
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1) , 0 2px 4px -1pxrgba(0,0,0,0.06);
   nav{
     padding: 8px 0;
 
     .branding{
       img{
-        width: 40px;
+        width: 100px;
         box-shadow:  0 4px 6px -1px rgba(0,0,0,0.1) , 0 2px 4px -1pxrgba(0,0,0,0.06);
+         @media (max-width:600px){
+         width: 70px;
+      }
       }
     }
   }
